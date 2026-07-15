@@ -1,0 +1,32 @@
+{
+  "title": "Acme Radiology Ops",
+  "mode": "standard",
+  "verdict": "Strong early signal in teleradiology groups migrating off spreadsheet-based worklist triage; timing is good due to a recent staffing crunch pattern showing up across three independent sources.",
+  "primary_icp": "Operations lead at a mid-size teleradiology group (10-50 radiologists) managing worklist prioritization manually.",
+  "adjacent_icp": "Solo/small imaging center admin evaluating AI triage tools for the first time.",
+  "disqualifiers": "Groups already under contract with a competing triage vendor; academic centers requiring multi-year procurement cycles.",
+  "top_prospect": {
+    "name": "J. Rivera",
+    "org": "Example Teleradiology Group",
+    "fit_score": 5,
+    "timing_score": 5,
+    "evidence": [
+      {"text": "Public forum post describing manual spreadsheet triage breaking down under case volume", "url": "https://example.com/post/123", "date": "2026-06-02"},
+      {"text": "Job posting for 'Radiology Workflow Coordinator' suggesting scaling pain", "url": "https://example.com/jobs/456", "date": "2026-06-20"}
+    ],
+    "opener": "Hi J., saw your post about the spreadsheet triage process breaking down as case volume grew -- we built a worklist tool for exactly that problem. Would a 10-minute look be useful?"
+  },
+  "prospects": [
+    {
+      "name": "J. Rivera",
+      "org": "Example Teleradiology Group",
+      "fit_score": 5,
+      "timing_score": 5,
+      "evidence": [{"text": "Forum post on triage breakdown", "url": "https://example.com/post/123", "date": "2026-06-02"}],
+      "opener": "Hi J., saw your post..."
+    }
+  ],
+  "patterns": ["Multiple groups mention spreadsheet-based triage failing above ~200 cases/day"],
+  "outreach_plan": ["Day 1: Send opener to top 3 prospects", "Day 3: Follow up with non-responders", "Day 7: Review response rate and refine ICP"],
+  "limitations": "Sample limited to public forum and job-board sources; no direct outreach to verify budget authority."
+}

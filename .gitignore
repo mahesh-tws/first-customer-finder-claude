@@ -1,0 +1,12 @@
+# Local run artifacts from using the skill -- not part of the skill itself
+outputs/
+first-customer-finder/outputs/
+prospects.json
+first-customer-report.json
+
+# Python
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store

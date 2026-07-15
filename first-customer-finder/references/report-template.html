@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{TITLE}} -- First Customer Report</title>
+<style>
+  :root {
+    --bg: #0f1115;
+    --panel: #171a21;
+    --panel-border: #262b36;
+    --text: #e8eaed;
+    --text-dim: #9aa2b1;
+    --accent: #6d8dff;
+    --accent-soft: rgba(109, 141, 255, 0.12);
+    --good: #4ade80;
+    --warn: #fbbf24;
+    --bad: #f87171;
+    --radius: 10px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+  }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 40px 24px 80px; }
+  header { margin-bottom: 36px; }
+  header h1 { font-size: 1.7rem; margin: 0 0 6px; }
+  header .meta { color: var(--text-dim); font-size: 0.9rem; }
+  .verdict-banner {
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin: 20px 0 32px;
+    font-size: 1.05rem;
+  }
+  section { margin-bottom: 44px; }
+  h2 {
+    font-size: 1.15rem;
+    border-bottom: 1px solid var(--panel-border);
+    padding-bottom: 10px;
+    margin-bottom: 18px;
+  }
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    margin-bottom: 14px;
+  }
+  .card h3 { margin: 0 0 8px; font-size: 1rem; }
+  .score-pair { display: flex; gap: 10px; margin: 10px 0; }
+  .score {
+    font-size: 0.8rem;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: var(--panel-border);
+    color: var(--text-dim);
+  }
+  .score.fit-high, .score.timing-high { background: rgba(74, 222, 128, 0.15); color: var(--good); }
+  .score.fit-mid, .score.timing-mid { background: rgba(251, 191, 36, 0.15); color: var(--warn); }
+  .evidence-list { margin: 10px 0 0; padding-left: 18px; font-size: 0.92rem; color: var(--text-dim); }
+  .evidence-list li { margin-bottom: 6px; }
+  .evidence-list a { color: var(--accent); text-decoration: none; }
+  .evidence-list a:hover { text-decoration: underline; }
+  .opener {
+    background: rgba(109, 141, 255, 0.06);
+    border-left: 3px solid var(--accent);
+    padding: 12px 16px;
+    margin-top: 12px;
+    font-size: 0.92rem;
+    white-space: pre-wrap;
+  }
+  .icp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 640px) { .icp-grid { grid-template-columns: 1fr; } }
+  .disqualifiers { color: var(--text-dim); font-size: 0.9rem; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--panel-border); }
+  th { color: var(--text-dim); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; }
+  ol.plan li { margin-bottom: 8px; }
+  .limitations {
+    background: rgba(248, 113, 113, 0.06);
+    border: 1px solid rgba(248, 113, 113, 0.25);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    font-size: 0.9rem;
+    color: var(--text-dim);
+  }
+  .disclaimer {
+    margin-top: 40px;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>{{TITLE}}</h1>
+    <div class="meta">First Customer Finder report &middot; mode: {{MODE}} &middot; generated {{GENERATED_DATE}}</div>
+  </header>
+
+  <div class="verdict-banner">{{VERDICT}}</div>
+
+  <section>
+    <h2>Ideal Customer Profile</h2>
+    <div class="icp-grid">
+      <div class="card">
+        <h3>Primary ICP</h3>
+        <p>{{PRIMARY_ICP}}</p>
+      </div>
+      <div class="card">
+        <h3>Adjacent ICP</h3>
+        <p>{{ADJACENT_ICP}}</p>
+      </div>
+    </div>
+    <p class="disqualifiers"><strong>Disqualifiers:</strong> {{DISQUALIFIERS}}</p>
+  </section>
+
+  <section>
+    <h2>Highest-Confidence Prospect</h2>
+    {{TOP_PROSPECT_CARD}}
+  </section>
+
+  <section>
+    <h2>Prospect Shortlist</h2>
+    {{PROSPECT_CARDS}}
+  </section>
+
+  <section>
+    <h2>Repeated Pain Patterns</h2>
+    {{PATTERN_LIST}}
+  </section>
+
+  <section>
+    <h2>Seven-Day Manual Outreach Plan</h2>
+    <ol class="plan">
+      {{OUTREACH_PLAN_ITEMS}}
+    </ol>
+  </section>
+
+  <section>
+    <h2>Research Limitations</h2>
+    <div class="limitations">{{LIMITATIONS}}</div>
+  </section>
+
+  <p class="disclaimer">
+    Prospects are hypotheses based on public signals, not confirmed customers
+    or guaranteed buyers. All outreach drafts are unsent -- review and send
+    manually.
+  </p>
+
+</div>
+</body>
+</html>
